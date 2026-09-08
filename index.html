@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#c94b32">
+    <meta name="description" content="Study 5,000 frequent Spanish words and 1,000 useful Spanish phrases offline.">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Spanish 6000">
+    <title>Spanish 6000 · Flashcards &amp; Quiz</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=6">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Spanish frequency trainer</p>
+        <h1>Spanish <span>6000</span></h1>
+        <p class="subtitle">5,000 words + 1,000 everyday phrases</p>
+      </div>
+      <div class="stats" aria-label="Study progress">
+        <span><strong id="totalCount">6,000</strong> cards</span>
+        <span><strong id="seenCount">0</strong> seen</span>
+        <span><strong id="knownCount">0</strong> known</span>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="hero-panel">
+        <div>
+          <p class="eyebrow">Your learning path</p>
+          <h2 id="pathTitle">Complete Spanish deck</h2>
+          <p id="pathSummary">Build recognition with frequency-ranked vocabulary, then make it active with common phrases.</p>
+        </div>
+        <div class="path-tabs" role="group" aria-label="Card collection">
+          <button class="path-tab active" data-kind="all" type="button">All <small>6,000</small></button>
+          <button class="path-tab" data-kind="word" type="button">Words <small>5,000</small></button>
+          <button class="path-tab" data-kind="phrase" type="button">Phrases <small>1,000</small></button>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Card controls">
+        <label class="search-field">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="hola, to travel, gracias…" autocomplete="off">
+        </label>
+        <label>
+          <span>Frequency band</span>
+          <select id="bandSelect"><option value="all">All ranks</option></select>
+        </label>
+        <label>
+          <span>Topic</span>
+          <select id="topicSelect"><option value="all">All topics</option></select>
+        </label>
+        <label>
+          <span>Direction</span>
+          <select id="directionSelect">
+            <option value="es-en">Spanish → English</option>
+            <option value="en-es">English → Spanish</option>
+            <option value="random">Mixed directions</option>
+          </select>
+        </label>
+        <label>
+          <span>Mode</span>
+          <select id="modeSelect">
+            <option value="flashcard">Flashcard</option>
+            <option value="quiz">4-choice quiz</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="study-options" aria-label="Study options">
+        <label class="check-option"><input id="hideKnownToggle" type="checkbox"><span>Hide known</span></label>
+        <div class="utility-actions">
+          <button id="shuffleBtn" type="button">Shuffle</button>
+          <button id="randomBtn" type="button">Random card</button>
+          <button id="resetProgressBtn" class="quiet" type="button">Reset progress</button>
+        </div>
+      </section>
+
+      <section class="study-area" aria-live="polite">
+        <div class="meta-row">
+          <div class="meta-pills"><span id="cardKind" class="pill"></span><span id="cardTopic" class="pill subtle"></span><span id="cardRank" class="pill subtle"></span></div>
+          <span id="cardCounter"></span>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+
+        <article id="card" class="card" tabindex="0">
+          <div class="card-face">
+            <p id="promptLabel" class="prompt-label"></p>
+            <p id="questionText" class="question" lang="es"></p>
+            <button id="speakBtn" class="speak" type="button" aria-label="Hear Spanish pronunciation">🔊 Hear it</button>
+            <div id="choices" class="choices"></div>
+            <div id="answerPanel" class="answer-panel" hidden>
+              <p class="answer-label">Answer</p>
+              <p id="answerText" class="answer-text"></p>
+              <p id="noteText" class="note"></p>
+            </div>
+          </div>
+        </article>
+
+        <div id="quizFeedback" class="quiz-feedback" hidden></div>
+        <nav class="actions" aria-label="Study actions">
+          <button id="prevBtn" type="button">Previous</button>
+          <button id="revealBtn" type="button" class="primary">Reveal answer</button>
+          <button id="knownBtn" type="button">Mark known</button>
+          <button id="nextBtn" type="button">Next</button>
+        </nav>
+        <p class="keyboard-hint">Keyboard: Space reveal · ←/→ navigate · K mark known · S speak</p>
+      </section>
+    </main>
+
+    <script src="cards.js?v=6"></script>
+    <script src="app.js?v=6"></script>
+  </body>
+</html>

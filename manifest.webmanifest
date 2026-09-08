@@ -1,0 +1,10 @@
+{
+  "name": "Spanish 6000 Flashcards",
+  "short_name": "Spanish 6000",
+  "description": "5,000 frequent Spanish words and 1,000 useful phrases.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fffaf4",
+  "theme_color": "#c94b32",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
